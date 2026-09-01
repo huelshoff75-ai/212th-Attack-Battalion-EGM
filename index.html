@@ -11,3 +11,534 @@
     <p>Das ist mein erstes Projekt auf GitHub Pages.</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>212. Angriffsbataillon | EGM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern Dark Sci-Fi Theme für das 212. Angriffsbataillon */
+        :root {
+            --bg-dark: #0b0d12;
+            --bg-card: #131722;
+            --bg-card-hover: #1c2233;
+            --accent-orange: #ff7700;
+            --accent-orange-glow: rgba(255, 119, 0, 0.4);
+            --accent-yellow: #ffb700;
+            --text-light: #f0f4f8;
+            --text-muted: #94a3b8;
+            --border-color: #2a3447;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigationsleiste */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 13, 18, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 900;
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+            text-shadow: 0 0 8px var(--accent-orange-glow);
+        }
+
+        /* Hero Bereich */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+            background: radial-gradient(circle at center, rgba(255, 119, 0, 0.15) 0%, rgba(11, 13, 18, 1) 70%);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            display: inline-block;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border: 1px solid var(--accent-orange);
+            padding: 4px 16px;
+            border-radius: 20px;
+            background: rgba(255, 119, 0, 0.05);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(180deg, #ffffff 0%, #a0aec0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-orange), #d45d00);
+            color: #ffffff;
+            box-shadow: 0 4px 20px var(--accent-orange-glow);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px var(--accent-orange-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        /* Sektionen Layout */
+        section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-orange);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            margin-top: 15px;
+        }
+
+        /* Raster-Karten */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-orange), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 119, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Rang-Badges */
+        .rank-badge {
+            display: inline-block;
+            background: rgba(255, 119, 0, 0.15);
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Regel-Liste */
+        .rules-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .rules-list li {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rules-list i {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+        }
+
+        /* Call-to-Action Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #1f2636 0%, #131722 100%);
+            border: 1px solid var(--accent-orange);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Fußzeile */
+        footer {
+            background: #07080b;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #64748b;
+            max-width: 700px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .nav-links { display: none; }
+            .btn-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigationsleiste -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-badge">212th</span>
+                <span>Angriffsbataillon</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Über Uns</a></li>
+                <li><a href="#units">Spezialisierungen</a></li>
+                <li><a href="#leadership">Führung</a></li>
+                <li><a href="#rules">Kodex</a></li>
+                <li><a href="#join">Beitreten</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Bereich -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">EGM Community Unit</span>
+            <h1>212. Angriffsbataillon</h1>
+            <p>Treue, Disziplin und unerschütterlicher Mut an vorderster Front der Großen Armee der Republik. Werde Teil einer legendären Einheit.</p>
+            <div class="btn-group">
+                <a href="#join" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Jetzt Beitreten</a>
+                <a href="#about" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Mehr Erfahren</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über Uns Sektion -->
+    <section id="about">
+        <div class="section-header">
+            <h2>Über das Bataillon</h2>
+            <p>Die Speerspitze der Republik im ständigen Einsatz für Frieden und Ordnung.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Taktische Exzellenz</h3>
+                <p>Das 212. Angriffsbataillon steht für präzise Taktik, disziplinierte Formationen und durchdachte Vorstöße in schwerstem Gelände.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-users-rays"></i></div>
+                <h3>Starker Zusammenhalt</h3>
+                <p>Bei uns zählt Kameradschaft. Jeder Klon erfüllt seine Aufgabe mit Hingabe, um das Überleben der Einheit zu sichern.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                <h3>Vielseitige Operationen</h3>
+                <p>Von Luftlandeeinsätzen bis hin zu schwerem Häuserkampf – das 212th ist auf jede Bedrohung vorbereitet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Untereinheiten -->
+    <section id="units">
+        <div class="section-header">
+            <h2>Untereinheiten & Rollen</h2>
+            <p>Spezialisierte Verbände für jede Gefechtslage.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="rank-badge">Hauptverband</span>
+                <h3>Ghost Company</h3>
+                <p>Die Kerninfanterie des Bataillons. Erfahren im Frontal- und Häuserkampf unter der direkten Führung von Commander Cody.</p>
+            </div>
+            <div class="card">
+                <span class="rank-badge">Luftlande</span>
+                <h3>2nd Airborne Bataillon</h3>
+                <p>Hochspezialisierte Fallschirmtruppen für überraschende Angriffe hinter feindlichen Linien aus großer Höhe.</p>
+            </div>
+            <div class="card">
+                <span class="rank-badge">Spezialkräfte</span>
+                <h3>Parjai Squad & Heavy</h3>
+                <p>Elitesoldaten für schwere Zerstörung, Abwehr von Panzerfahrzeugen und kritische Spezialoperationen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Führungsriege -->
+    <section id="leadership">
+        <div class="section-header">
+            <h2>Führungsriege</h2>
+            <p>Die Kommandoebene des 212. Angriffsbataillons.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="rank-badge">High General</span>
+                <h3>Obi-Wan Kenobi</h3>
+                <p>Oberbefehlshaber der Einheit. Er führt das Bataillon mit Weisheit, Gelassenheit und strategischer Brillanz.</p>
+            </div>
+            <div class="card">
+                <span class="rank-badge">Clone Commander</span>
+                <h3>CC-2224 "Cody"</h3>
+                <p>Militärischer Kommandant des Bataillons. Verantwortlich für Disziplin, Einsatzplanung und die operative Führung.</p>
+            </div>
+            <div class="card">
+                <span class="rank-badge">Offiziere & Squad Leader</span>
+                <h3>Captains & Lieutenants</h3>
+                <p>Erfahrene Truppenführer, die die Truppenteile im Feld koordinieren und die Ausbildung leiten.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kodex -->
+    <section id="rules">
+        <div class="section-header">
+            <h2>Der Klon-Kodex</h2>
+            <p>Grundregeln für jeden Soldaten des Bataillons.</p>
+        </div>
+        <ul class="rules-list">
+            <li>
+                <i class="fa-solid fa-check-double"></i>
+                <div>
+                    <strong>Befehlskette einhalten:</strong> Anweisungen von Vorgesetzten sind unverzüglich und präzise auszuführen.
+                </div>
+            </li>
+            <li>
+                <i class="fa-solid fa-hand-fist"></i>
+                <div>
+                    <strong>Kameradschaft bewahren:</strong> Kein Soldat wird im Stich gelassen. Respektvoller Umgang intern ist Pflicht.
+                </div>
+            </li>
+            <li>
+                <i class="fa-solid fa-gun"></i>
+                <div>
+                    <strong>Gefechtsbereitschaft:</strong> Ausrüstung, Disziplin und Funksprachregelung müssen stets eingehalten werden.
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Beitritts-Banner -->
+    <section id="join">
+        <div class="cta-banner">
+            <h2>Bist du bereit für die Front?</h2>
+            <p>Melde dich im Rekrutierungsbüro auf unserem Discord oder TeamSpeak und starte deine Ausbildung beim 212. Angriffsbataillon!</p>
+            <div class="btn-group">
+                <a href="https://discord.gg" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Discord Server</a>
+                <a href="#" class="btn btn-secondary"><i class="fa-solid fa-headset"></i> TeamSpeak / Server</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fußzeile -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <strong>212. Angriffsbataillon - EGM Community</strong>
+            </div>
+            <p class="disclaimer">
+                Dies ist eine inoffizielle Fan-Webseite für Rollenspiel-Communitys (EGM / Garry's Mod Star Wars RP). Star Wars und alle dazugehörigen Marken sind Eigentum von Lucasfilm Ltd. / Disney.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+```eof
+
+Du kannst diesen gesamten Code kopieren und in deine `index.html` Datei auf GitHub einfügen. Nach dem Speichern ist deine neue 212th-Webseite direkt online!
