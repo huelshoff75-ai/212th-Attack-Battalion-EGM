@@ -38,7 +38,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(11, 13, 18, 0.9);
+            background: rgba(11, 13, 18, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
@@ -124,9 +124,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(180deg, #ffffff 0%, #a0aec0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
         }
 
         .hero p {
@@ -168,3 +166,268 @@
         }
 
         .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+            color: #ffffff;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-orange);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            margin-top: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-orange), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 119, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            background-color: #07080b;
+            padding: 5px;
+        }
+
+        .tag {
+            align-self: flex-start;
+            background: rgba(255, 119, 0, 0.15);
+            color: var(--accent-orange);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #1f2636 0%, #131722 100%);
+            border: 1px solid var(--accent-orange);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer {
+            background: #07080b;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-badge">212th</span>
+                <span>Angriffsbataillon</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Über Uns</a></li>
+                <li><a href="#equipment">Ausrüstung</a></li>
+                <li><a href="#join">Beitreten</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">EGM Community Unit</span>
+            <h1>212. Angriffsbataillon</h1>
+            <p>Treue, Disziplin und unerschütterlicher Mut an vorderster Front der Großen Armee der Republik.</p>
+            <div class="btn-group">
+                <a href="#join" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Jetzt Beitreten</a>
+                <a href="#equipment" class="btn btn-secondary"><i class="fa-solid fa-gun"></i> Ausrüstung ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>Über das Bataillon</h2>
+            <p>Die Speerspitze der Republik im ständigen Einsatz für Frieden und Ordnung.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Taktische Exzellenz</h3>
+                <p>Das 212. Angriffsbataillon steht für präzise Taktik, disziplinierte Formationen und durchdachte Vorstöße.</p>
+            </div>
+            <div class="card">
+                <h3>Starker Zusammenhalt</h3>
+                <p>Bei uns zählt Kameradschaft. Jeder Klon erfüllt seine Aufgabe mit Hingabe für die Einheit.</p>
+            </div>
+            <div class="card">
+                <h3>Vielseitige Operationen</h3>
+                <p>Von Luftlandeeinsätzen bis hin zu schwerem Häuserkampf – das 212th ist stets bereit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment">
+        <div class="section-header">
+            <h2>Ausrüstung & Rüstungen</h2>
+            <p>Unsere Bewaffnung und Spezialausrüstung auf dem Schlachtfeld.</p>
+        </div>
+        <div class="grid">
+
+            <div class="card">
+                <span class="tag">Bauplan / Blaupause</span>
+                <img src="https://i.postimg.cc/QKDC8wrL/30608cd3-518c-44d9-8336-024010fe524a.png" alt="DC-15A Blaupause" class="card-img">
+                <h3>DC-15A Bauplan</h3>
+                <p>Detaillierte Explosionszeichnung der Einzelteile, Hebelsysteme und Komponenten.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Hauptbewaffnung</span>
+                <img src="https://i.postimg.cc/xJMqSYB0/54b3c409-9ecf-4d05-9497-5512e58649dd.png" alt="DC-15A Blaster Carbine" class="card-img">
+                <h3>DC-15A Blaster Carbine</h3>
+                <p>Infanteriewaffe mit Zielerfassung, Tibanna-Gaskartusche und Klappschaft.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Aufklärung</span>
+                <img src="https://i.postimg.cc/PvHJX9kk/571789b6-58ef-4ed8-9a02-ecc7ea38723d.png" alt="ARF Rüstung" class="card-img">
+                <h3>ARF-Rüstung</h3>
+                <p>Erkundungs- und Aufklärungsrüstung des 212th Bataillons.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Luftlandeeinheit</span>
+                <img src="https://i.postimg.cc/4HGyfqTG/98832369-1b2f-48f7-8845-511f20e3847a.png" alt="Airborne Rüstung" class="card-img">
+                <h3>Airborne-Rüstung</h3>
+                <p>Rüstung des 2nd Airborne mit Spezialhelm und Munitionsgurten.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Spezial-Equipment</span>
+                <img src="https://i.postimg.cc/XBWqjm6R/98dff663-b434-4641-8d94-c33141eda7ab.png" alt="JT-12 Jetpack" class="card-img">
+                <h3>JT-12 Jetpack</h3>
+                <p>Rückentriebwerk für maximale vertikale Mobilität.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Schwere Waffe</span>
+                <img src="https://i.postimg.cc/n9xrFgtJ/d7b19af6-dcd6-4714-89d2-cf8cec32e765.png" alt="RPS-6 Raketenwerfer" class="card-img">
+                <h3>RPS-6 Raketenwerfer</h3>
+                <p>Schwere Panzerabwehrwaffe inklusive Munition.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="join">
+        <div class="cta-banner">
+            <h2>Bist du bereit für die Front?</h2>
+            <p>Melde dich im Rekrutierungsbüro auf unserem Discord oder TeamSpeak und starte deine Ausbildung beim 212th!</p>
+            <div class="btn-group">
+                <a href="https://discord.gg" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Discord Server</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <strong>212. Angriffsbataillon - EGM Community</strong>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">Inoffizielle Fan-Webseite. Star Wars ist Eigentum von Lucasfilm Ltd. / Disney.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
