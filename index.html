@@ -276,15 +276,32 @@
             text-transform: uppercase;
         }
 
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
+        /* Mitgliedskarten Styling */
+        .member-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-right: 5px;
+            margin-bottom: 5px;
         }
+        .badge-ghost { background: rgba(255, 119, 0, 0.2); color: #ff9d42; border: 1px solid #ff7700; }
+        .badge-airborne { background: rgba(0, 150, 255, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+        .badge-rank { background: #2a3447; color: #f0f4f8; }
 
-        .card p {
+        .member-info {
+            list-style: none;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+        .member-info li {
+            margin-bottom: 5px;
+        }
+        .member-info strong {
+            color: var(--text-light);
         }
 
         .cta-banner {
@@ -294,6 +311,72 @@
             padding: 3rem 2rem;
             text-align: center;
             margin-top: 40px;
+        }
+
+        /* Modal / Popup Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: var(--bg-card);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 1px solid var(--accent-orange);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 900px;
+            color: var(--text-light);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--text-muted);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: var(--accent-orange);
+        }
+
+        .rules-content h3 {
+            color: var(--accent-orange);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .rules-content p, .rules-content ul {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .rules-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .rules-content li {
+            margin-bottom: 6px;
+            padding-left: 10px;
+            border-left: 2px solid var(--accent-orange);
         }
 
         footer {
@@ -321,6 +404,8 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#about">Über Uns</a></li>
+                <li><a href="#rules">Regelwerk</a></li>
+                <li><a href="#members">Mitglieder</a></li>
                 <li><a href="#equipment">Ausrüstung</a></li>
                 <li><a href="#join">Beitreten</a></li>
             </ul>
@@ -334,32 +419,158 @@
             <p>Treue, Disziplin und unerschütterlicher Mut an vorderster Front der Großen Armee der Republik.</p>
             <div class="btn-group">
                 <a href="#join" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Jetzt Beitreten</a>
-                <a href="#equipment" class="btn btn-secondary"><i class="fa-solid fa-gun"></i> Ausrüstung ansehen</a>
+                <button onclick="openRules()" class="btn btn-secondary"><i class="fa-solid fa-book"></i> Regelwerk lesen</button>
             </div>
         </div>
     </section>
 
+    <!-- Über Uns & Aufgabengebiet -->
     <section id="about">
         <div class="section-header">
-            <h2>Über das Bataillon</h2>
-            <p>Die Speerspitze der Republik im ständigen Einsatz für Frieden und Ordnung.</p>
+            <h2>Das Aufgabengebiet</h2>
+            <p>Die Speerspitze der Republik im ständigen Einsatz auf dem Schlachtfeld.</p>
         </div>
         <div class="grid">
             <div class="card">
-                <h3>Taktische Exzellenz</h3>
-                <p>Das 212. Angriffsbataillon steht für präzise Taktik, disziplinierte Formationen und durchdachte Vorstöße.</p>
+                <h3>Hauptaufgabe</h3>
+                <p>Die 212th hat die Aufgabe, feindliche Bodenfahrzeuge wie Panzer oder Flugzeuge wie Bomber und Jäger rapide zu zerstören. Das Vernichten der feindlichen Infanterie hat ebenfalls oberste Priorität.</p>
             </div>
             <div class="card">
-                <h3>Starker Zusammenhalt</h3>
-                <p>Bei uns zählt Kameradschaft. Jeder Klon erfüllt seine Aufgabe mit Hingabe für die Einheit.</p>
+                <h3>2nd Airborne Company</h3>
+                <p>Durch die Spezialisierung der 2nd Airborne zählt es für unser Bataillon ebenso dazu, komplexe und hochgefährliche Luftlandeoperationen durchzuführen.</p>
             </div>
             <div class="card">
-                <h3>Vielseitige Operationen</h3>
-                <p>Von Luftlandeeinsätzen bis hin zu schwerem Häuserkampf – das 212th ist stets bereit.</p>
+                <h3>Kampfpositionen</h3>
+                <p><strong>Auf Schiffen:</strong> Mainhangar oder 1. Hangar (2nd auf der Außenhülle, GHC im Hangar).<br><strong>In Basen:</strong> Vor dem Hauptquartier (2nd auf den Dächern, GHC am Boden).</p>
             </div>
         </div>
     </section>
 
+    <!-- Regelwerk VORSCHAU -->
+    <section id="rules" style="background: rgba(19, 23, 34, 0.5); border-radius: 16px;">
+        <div class="section-header">
+            <h2>Einheitsregelwerk</h2>
+            <p>Verhaltensregeln, Aktivitätspflichten und Beförderung Kriterien der Einheit.</p>
+        </div>
+        <div style="text-align: center;">
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Das Regelwerk ist für alle Mitglieder der 212th bindend. Bitte lies es dir sorgfältig durch.</p>
+            <button onclick="openRules()" class="btn btn-primary"><i class="fa-solid fa-file-lines"></i> Vollständiges Regelwerk öffnen</button>
+        </div>
+    </section>
+
+    <!-- Einheitsmitglieder -->
+    <section id="members">
+        <div class="section-header">
+            <h2>Einheitsmitglieder</h2>
+            <p>Führungsebene und Spezialisten des 212th Angriffsbataillons.</p>
+        </div>
+        <div class="grid">
+
+            <!-- Captains -->
+            <div class="card">
+                <span class="member-badge badge-rank">Captain</span>
+                <span class="member-badge badge-ghost">Ghost Company</span>
+                <h3>Ref</h3>
+                <ul class="member-info">
+                    <li><strong>Position:</strong> Hohe Führungsebene</li>
+                    <li><strong>Zusatz:</strong> Adjutant: RMC</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="member-badge badge-rank">Captain</span>
+                <span class="member-badge badge-airborne">2nd Airborne</span>
+                <h3>Whiteaxe | Derbi</h3>
+                <ul class="member-info">
+                    <li><strong>Position:</strong> Hohe Führungsebene</li>
+                </ul>
+            </div>
+
+            <!-- First Lieutenant -->
+            <div class="card">
+                <span class="member-badge badge-rank">1st Lieutenant</span>
+                <span class="member-badge badge-ghost">Ghost Company</span>
+                <h3>Vuiq</h3>
+                <ul class="member-info">
+                    <li><strong>Position:</strong> Führungsebene</li>
+                    <li><strong>Zusatz:</strong> Recon Squad</li>
+                    <li><strong>Letzte Beförderung:</strong> 30. Aug.</li>
+                </ul>
+            </div>
+
+            <!-- Lieutenants -->
+            <div class="card">
+                <span class="member-badge badge-rank">Lieutenant</span>
+                <span class="member-badge badge-airborne">2nd Airborne</span>
+                <h3>Demon</h3>
+                <ul class="member-info">
+                    <li><strong>Letzte Beförderung:</strong> 18. Juni</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="member-badge badge-rank">Lieutenant</span>
+                <span class="member-badge badge-airborne">2nd Airborne</span>
+                <h3>Able | Raphi</h3>
+                <ul class="member-info">
+                    <li><strong>Position:</strong> Führungsebene</li>
+                    <li><strong>Zusatz:</strong> Testzeit bis 27.8.</li>
+                    <li><strong>Letzte Beförderung:</strong> 20. Aug.</li>
+                </ul>
+            </div>
+
+            <!-- Sergeants -->
+            <div class="card">
+                <span class="member-badge badge-rank">Sergeant</span>
+                <span class="member-badge badge-airborne">2nd Airborne</span>
+                <h3>Tentef</h3>
+                <ul class="member-info">
+                    <li><strong>Zusatz:</strong> Parjai Squad</li>
+                    <li><strong>Adjutant:</strong> RMC</li>
+                    <li><strong>Letzte Beförderung:</strong> 20. Aug.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="member-badge badge-rank">Sergeant</span>
+                <span class="member-badge badge-airborne">2nd Airborne</span>
+                <h3>Slick</h3>
+                <ul class="member-info">
+                    <li><strong>Letzte Beförderung:</strong> 25. Juli</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="member-badge badge-rank">Sergeant</span>
+                <span class="member-badge badge-ghost">Ghost Company</span>
+                <h3>Peel | Ender</h3>
+                <ul class="member-info">
+                    <li><strong>Letzte Beförderung:</strong> 15. Juni</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Informationssysteme (Adjutanten & Praktikanten) -->
+    <section>
+        <div class="section-header">
+            <h2>Informationen & Beitritt</h2>
+            <p>Wie du Teil der Einheit oder Adjutant wirst.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Wie werde ich Adjutant?</h3>
+                <p>Stelle dich in der nächsten Führungsebenenbesprechung am <strong>Sonntag um 18:00 Uhr</strong> vor. Melde dich vorher bei einem FE-Mitglied, um auf die Agenda gesetzt zu werden. Nach Annahme folgt eine 1-wöchige Testzeit im aktiven RP.</p>
+            </div>
+            <div class="card">
+                <h3>Praktikanten System</h3>
+                <p>Melde dich ingame bei einem <strong>Sergeant oder höher</strong>, um dein Praktikum zu starten. Nach mindestens 3 Tagen Praktikum kannst du bei einem <strong>Lieutenant+</strong> den Theorietest absolvieren (Praxisteil entfällt durch dein Praktikum).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ausrüstung -->
     <section id="equipment">
         <div class="section-header">
             <h2>Ausrüstung & Rüstungen</h2>
@@ -412,6 +623,7 @@
         </div>
     </section>
 
+    <!-- Beitreten -->
     <section id="join">
         <div class="cta-banner">
             <h2>Bist du bereit für die Front?</h2>
@@ -422,6 +634,56 @@
         </div>
     </section>
 
+    <!-- Modal Fenster für Regelwerk -->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeRules()">&times;</span>
+            <div class="rules-content">
+                <h2>Offizielles 212th Regelwerk</h2>
+                
+                <h3>§1 Allgemeine Regeln</h3>
+                <ul>
+                    <li><strong>§1.1</strong> Das Mindestalter in unserer Einheit beträgt 13 Jahre.</li>
+                    <li><strong>§1.2</strong> Vorschläge, welche die Einheit betreffen, müssen vorher mit der FE bzw. Einheitsleitung abgesprochen und in der EB vorgetragen werden.</li>
+                    <li><strong>§1.3</strong> Sobald man als 212th auf dem Server ist, muss man erreichbar sein (Discord, TS oder Ingame Einheitschat).</li>
+                    <li><strong>§1.4</strong> Abwerbung für die jeweilige Untereinheit ist verboten.</li>
+                    <li><strong>§1.5</strong> Fragen nach Beförderungen wird mit einer 1-2 wöchigen Sperre oder Degradierung/Strike geahndet.</li>
+                    <li><strong>§1.6</strong> Die EB kann nur stattfinden, wenn mindestens ein Captain anwesend ist.</li>
+                    <li><strong>§1.7</strong> Man hat sich stets an die Kleiderordnung zu halten.</li>
+                    <li><strong>§1.8</strong> Clone Trooper können nur mit Erlaubnis eines SGT+ als Praktikant aufgenommen werden.</li>
+                    <li><strong>§1.9</strong> Praktikanten können nur mit Erlaubnis eines LT+ aufgenommen werden.</li>
+                    <li><strong>§1.10</strong> Nach 2 Strikes wird man jeweils einen Rang degradiert.</li>
+                    <li><strong>§1.11</strong> Ein LT+ kann einen von ihm vergebenen Strike selbstständig revidieren.</li>
+                    <li><strong>§1.12</strong> Abmeldungen von über 2 Wochen müssen mit dem Commander besprochen werden.</li>
+                    <li><strong>§1.13</strong> Der Commander darf sich jederzeit über das Regelwerk hinwegsetzen.</li>
+                </ul>
+
+                <h3>§2 Verhaltensregeln</h3>
+                <ul>
+                    <li><strong>§2.1</strong> Freundlicher Umgangston sowol OOC als auch IC ist Pflicht.</li>
+                    <li><strong>§2.2</strong> Es ist stets Pflicht, sich wie ein Klon zu verhalten.</li>
+                    <li><strong>§2.3</strong> Taten, die die Einheit schädigen, werden von der FE nach Ermessen bestraft.</li>
+                    <li><strong>§2.4</strong> Befehle des Höchstrangigen sind jederzeit auszuführen.</li>
+                    <li><strong>§2.5</strong> Probleme werden einheitsintern geklärt (ST Hinzuziehung vermeiden). Provokationen Dritter sofort der FE melden.</li>
+                </ul>
+
+                <h3>§3 Aktivität & §4 Beförderungen</h3>
+                <ul>
+                    <li><strong>§3.1</strong> Mindestaktivität: 2 Std./Woche (ab SGT: 3 Std./Woche). Für Beförderung: 3+ Std./Woche.</li>
+                    <li><strong>§3.2</strong> AFK-Farming ist verboten (nach >5 Min AFK Server verlassen).</li>
+                    <li><strong>§4.1/4.2</strong> Beförderungen setzen 3 Std. Aktivität, Pflichtfortbildungen und den Beitritt einer Untereinheit (sonst max. PFC) voraus.</li>
+                </ul>
+
+                <h3>§10 FEB Regelungen</h3>
+                <ul>
+                    <li><strong>§10.1</strong> LT-Beförderung nur bei Anwesenheit des Commanders.</li>
+                    <li><strong>§10.2</strong> SGM-Beförderung nur bei Anwesenheit des Commanders.</li>
+                    <li><strong>§10.3</strong> SGT-Beförderung erfordert mind. 3 Lieutenants (davon 1 aus der Untereinheit).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div>
             <strong>212. Angriffsbataillon - EGM Community</strong>
@@ -429,5 +691,19 @@
         </div>
     </footer>
 
+    <script>
+        function openRules() {
+            document.getElementById("rulesModal").style.display = "block";
+        }
+        function closeRules() {
+            document.getElementById("rulesModal").style.display = "none";
+        }
+        window.onclick = function(event) {
+            var modal = document.getElementById("rulesModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
