@@ -224,10 +224,12 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .card::before {
@@ -252,24 +254,18 @@
             opacity: 1;
         }
 
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--accent-orange);
-            margin-bottom: 1.2rem;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            background-color: #07080b;
         }
 
         .tag {
-            display: inline-block;
+            align-self: flex-start;
             background: rgba(255, 119, 0, 0.15);
             color: var(--accent-orange);
             font-size: 0.75rem;
@@ -280,26 +276,14 @@
             text-transform: uppercase;
         }
 
-        .rules-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
 
-        .rules-list li {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .rules-list i {
-            color: var(--accent-orange);
-            font-size: 1.2rem;
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         .cta-banner {
@@ -311,17 +295,6 @@
             margin-top: 40px;
         }
 
-        .cta-banner h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-banner p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
         footer {
             background: #07080b;
             border-top: 1px solid var(--border-color);
@@ -329,12 +302,6 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
-        }
-
-        .disclaimer {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
@@ -381,113 +348,71 @@
         </div>
         <div class="grid">
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
                 <h3>Taktische Exzellenz</h3>
                 <p>Das 212. Angriffsbataillon steht für präzise Taktik, disziplinierte Formationen und durchdachte Vorstöße.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-users-rays"></i></div>
                 <h3>Starker Zusammenhalt</h3>
                 <p>Bei uns zählt Kameradschaft. Jeder Klon erfüllt seine Aufgabe mit Hingabe für die Einheit.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
                 <h3>Vielseitige Operationen</h3>
                 <p>Von Luftlandeeinsätzen bis hin zu schwerem Häuserkampf – das 212th ist stets bereit.</p>
             </div>
         </div>
     </section>
 
-    <!-- NEU: Ausrüstung & Waffen -->
+    <!-- Ausrüstung & Rüstungen mit Direkt-Bildern -->
     <section id="equipment">
         <div class="section-header">
             <h2>Ausrüstung & Rüstungen</h2>
             <p>Unsere Bewaffnung und Spezialausrüstung auf dem Schlachtfeld.</p>
         </div>
         <div class="grid">
+
             <div class="card">
                 <span class="tag">Hauptbewaffnung</span>
-                <div class="card-icon"><i class="fa-solid fa-gun"></i></div>
+                <img src="https://static.wikia.nocookie.net/starwars/images/a/a2/DC-15A_bf2.png" alt="DC-15A Blaster" class="card-img">
                 <h3>DC-15A Blastergewehr</h3>
-                <p>Das Standard-Blastergewehr der Klonkrieger. Bietet hohe Reichweite, enorme Durchschlagskraft und hohe Präzision auf mittlere und lange Distanzen.</p>
+                <p>Das Standard-Blastergewehr der Klonkrieger. Bietet hohe Reichweite, enorme Durchschlagskraft und hohe Präzision.</p>
             </div>
+
             <div class="card">
                 <span class="tag">Schwere Waffe</span>
-                <div class="card-icon"><i class="fa-solid fa-burst"></i></div>
+                <img src="https://static.wikia.nocookie.net/starwars/images/a/a8/RPS6_DICE.png" alt="RPS-6 Raketenwerfer" class="card-img">
                 <h3>RPS-6 Raketenwerfer</h3>
-                <p>Schweres Panzerabwehrsystem zur Bekämpfung von feindlichen Droiden-Panzern, Fortifikationen und gegnerischen Fluggeräten.</p>
+                <p>Schweres Panzerabwehrsystem zur Bekämpfung von feindlichen Droiden-Panzern und gegnerischen Fluggeräten.</p>
             </div>
+
             <div class="card">
                 <span class="tag">Aufklärung</span>
-                <div class="card-icon"><i class="fa-solid fa-user-ninja"></i></div>
+                <img src="https://static.wikia.nocookie.net/starwars/images/2/22/ARF_trooper.png" alt="ARF Rüstung" class="card-img">
                 <h3>ARF-Rüstung</h3>
-                <p>Spezielle Advanced Recon Force Rüstung. Leicht, hochmobil und ausgestattet mit fortschrittlichen Scannern für Aufklärungseinsätze.</p>
+                <p>Spezielle Advanced Recon Force Rüstung. Leicht, hochmobil und ausgestattet für Aufklärungseinsätze.</p>
             </div>
+
             <div class="card">
                 <span class="tag">Luftlandeeinheit</span>
-                <div class="card-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                <img src="https://static.wikia.nocookie.net/starwars/images/3/3d/Airborne_trooper.png" alt="Airborne Rüstung" class="card-img">
                 <h3>Airborne-Rüstung</h3>
-                <p>Verstärkter Helm und Spezialrüstung des 2nd Airborne Bataillons, optimiert für Hochgeschwindigkeits-Absprünge und harte Landungen.</p>
+                <p>Verstärkter Helm und Spezialrüstung des 2nd Airborne Bataillons, optimiert für Hochgeschwindigkeits-Absprünge.</p>
             </div>
+
             <div class="card">
                 <span class="tag">Spezial-Equipment</span>
-                <div class="card-icon"><i class="fa-solid fa-jet-fighter-up"></i></div>
+                <img src="https://static.wikia.nocookie.net/starwars/images/f/f6/JT-12_jetpack.png" alt="JT-12 Jetpack" class="card-img">
                 <h3>JT-12 Jetpack</h3>
-                <p>Ermöglicht verheerende Luftangriffe, schnelle Positionswechsel und das Erreichen von strategisch hochgelegenen Aussichtspunkten.</p>
+                <p>Ermöglicht verheerende Luftangriffe, schnelle Positionswechsel und taktische Luftlandungen.</p>
             </div>
+
         </div>
     </section>
 
-    <!-- Untereinheiten -->
-    <section id="units">
-        <div class="section-header">
-            <h2>Spezialisierte Verbände</h2>
-            <p>Die Untereinheiten des 212th.</p>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <span class="tag">Hauptverband</span>
-                <h3>Ghost Company</h3>
-                <p>Die Kerninfanterie des Bataillons. Erfahren im Frontal- und Häuserkampf unter der Führung von Commander Cody.</p>
-            </div>
-            <div class="card">
-                <span class="tag">Luftlande</span>
-                <h3>2nd Airborne Bataillon</h3>
-                <p>Hochspezialisierte Fallschirmtruppen für überraschende Angriffe hinter feindlichen Linien.</p>
-            </div>
-            <div class="card">
-                <span class="tag">Spezialkräfte</span>
-                <h3>Parjai Squad</h3>
-                <p>Elitesoldaten für schwere Zerstörung, Fahrzeugabwehr und kritische Spezialoperationen.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Führung -->
-    <section id="leadership">
-        <div class="section-header">
-            <h2>Führungsriege</h2>
-            <p>Die Kommandoebene des 212. Angriffsbataillons.</p>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <span class="tag">High General</span>
-                <h3>Obi-Wan Kenobi</h3>
-                <p>Oberbefehlshaber der Einheit. Er führt das Bataillon mit Weisheit und strategischer Brillanz.</p>
-            </div>
-            <div class="card">
-                <span class="tag">Clone Commander</span>
-                <h3>CC-2224 "Cody"</h3>
-                <p>Militärischer Kommandant des Bataillons. Verantwortlich für Disziplin und operative Führung.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Beitreten -->
+    <!-- Beitreten Banner -->
     <section id="join">
         <div class="cta-banner">
             <h2>Bist du bereit für die Front?</h2>
-            <p>Melde dich im Rekrutierungsbüro auf unserem Discord oder TeamSpeak und starte deine Ausbildung!</p>
+            <p>Melde dich im Rekrutierungsbüro auf unserem Discord oder TeamSpeak und starte deine Ausbildung beim 212th!</p>
             <div class="btn-group">
                 <a href="https://discord.gg" target="_blank" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Discord Server</a>
             </div>
@@ -497,7 +422,7 @@
     <footer>
         <div>
             <strong>212. Angriffsbataillon - EGM Community</strong>
-            <p class="disclaimer">Inoffizielle Fan-Webseite. Star Wars ist Eigentum von Lucasfilm Ltd. / Disney.</p>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">Inoffizielle Fan-Webseite. Star Wars ist Eigentum von Lucasfilm Ltd. / Disney.</p>
         </div>
     </footer>
 
