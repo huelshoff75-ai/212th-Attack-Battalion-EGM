@@ -256,12 +256,13 @@
 
         .card-img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 220px;
+            object-fit: contain;
             border-radius: 8px;
             margin-bottom: 15px;
             border: 1px solid var(--border-color);
             background-color: #07080b;
+            padding: 5px;
         }
 
         .tag {
@@ -322,7 +323,6 @@
                 <li><a href="#about">Über Uns</a></li>
                 <li><a href="#equipment">Ausrüstung</a></li>
                 <li><a href="#units">Untereinheiten</a></li>
-                <li><a href="#leadership">Führung</a></li>
                 <li><a href="#join">Beitreten</a></li>
             </ul>
         </div>
@@ -362,7 +362,7 @@
         </div>
     </section>
 
-    <!-- Ausrüstung & Rüstungen mit Direkt-Bildern -->
+    <!-- Ausrüstung & Rüstungen mit funktionierenden Web-Links -->
     <section id="equipment">
         <div class="section-header">
             <h2>Ausrüstung & Rüstungen</h2>
@@ -371,38 +371,45 @@
         <div class="grid">
 
             <div class="card">
-                <span class="tag">Hauptbewaffnung</span>
-                <img src="https://static.wikia.nocookie.net/starwars/images/a/a2/DC-15A_bf2.png" alt="DC-15A Blaster" class="card-img">
-                <h3>DC-15A Blastergewehr</h3>
-                <p>Das Standard-Blastergewehr der Klonkrieger. Bietet hohe Reichweite, enorme Durchschlagskraft und hohe Präzision.</p>
+                <span class="tag">Bauplan / Blaupause</span>
+                <img src="https://i.imgur.com/vHq0LNm.jpeg" alt="Blaupause" class="card-img">
+                <h3>DC-15A Bauplan</h3>
+                <p>Detaillierte Explosionszeichnung aller Einzelteile, Stifte, Hebel und Aufbauten des DC-15A Blasters.</p>
             </div>
 
             <div class="card">
-                <span class="tag">Schwere Waffe</span>
-                <img src="https://static.wikia.nocookie.net/starwars/images/a/a8/RPS6_DICE.png" alt="RPS-6 Raketenwerfer" class="card-img">
-                <h3>RPS-6 Raketenwerfer</h3>
-                <p>Schweres Panzerabwehrsystem zur Bekämpfung von feindlichen Droiden-Panzern und gegnerischen Fluggeräten.</p>
+                <span class="tag">Hauptbewaffnung</span>
+                <img src="https://images.squarespace-cdn.com/content/v1/5323281fe4b0db340ef2f2dd/1547847953835-IUX4HQGZ7OOWSZG75PBN/DC-15A.jpg" alt="DC-15A Blaster Carbine" class="card-img">
+                <h3>DC-15A Blaster Carbine</h3>
+                <p>Standard-Bewaffnung mit Power-Pack, Tibanna-Gaskartusche, Klappvisier und integriertem Handlauf.</p>
             </div>
 
             <div class="card">
                 <span class="tag">Aufklärung</span>
-                <img src="https://static.wikia.nocookie.net/starwars/images/2/22/ARF_trooper.png" alt="ARF Rüstung" class="card-img">
+                <img src="https://cdnb.artstation.com/p/assets/images/images/035/050/393/large/mandalo-mandalo-arf-trooper-212th.jpg" alt="ARF Rüstung" class="card-img">
                 <h3>ARF-Rüstung</h3>
-                <p>Spezielle Advanced Recon Force Rüstung. Leicht, hochmobil und ausgestattet für Aufklärungseinsätze.</p>
+                <p>Advanced Recon Force Rüstung im charakteristischen orange-weißen Anstrich des 212th Bataillons.</p>
             </div>
 
             <div class="card">
                 <span class="tag">Luftlandeeinheit</span>
-                <img src="https://static.wikia.nocookie.net/starwars/images/3/3d/Airborne_trooper.png" alt="Airborne Rüstung" class="card-img">
+                <img src="https://i.ebayimg.com/images/g/xMsAAOSwXJZhQ2L1/s-l1200.jpg" alt="Airborne Rüstung" class="card-img">
                 <h3>Airborne-Rüstung</h3>
-                <p>Verstärkter Helm und Spezialrüstung des 2nd Airborne Bataillons, optimiert für Hochgeschwindigkeits-Absprünge.</p>
+                <p>Spezialausrüstung des 2nd Airborne mit verstärktem Helm, Schultergurt und Munitionstaschen.</p>
+            </div>
+
+            <div class="card">
+                <span class="tag">Schwere Waffe</span>
+                <img src="https://cdna.artstation.com/p/assets/images/images/019/333/084/large/marius-woerth-tb.jpg" alt="RPS-6 Raketenwerfer" class="card-img">
+                <h3>RPS-6 Raketenwerfer</h3>
+                <p>Schwerer Raketenwerfer inklusive Panzerabwehr-Geschossen zur Bekämpfung feindlicher Fahrzeuge.</p>
             </div>
 
             <div class="card">
                 <span class="tag">Spezial-Equipment</span>
-                <img src="https://static.wikia.nocookie.net/starwars/images/f/f6/JT-12_jetpack.png" alt="JT-12 Jetpack" class="card-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Jango_Fett_Jetpack.png/600px-Jango_Fett_Jetpack.png" alt="JT-12 Jetpack" class="card-img">
                 <h3>JT-12 Jetpack</h3>
-                <p>Ermöglicht verheerende Luftangriffe, schnelle Positionswechsel und taktische Luftlandungen.</p>
+                <p>Rückentriebwerk für maximale vertikale Mobilität, schnelle Angriffe und taktsiche Manöver.</p>
             </div>
 
         </div>
@@ -428,5 +435,3 @@
 
 </body>
 </html>
-
-Du kannst diesen gesamten Code kopieren und in deine `index.html` Datei auf GitHub einfügen. Nach dem Speichern ist deine neue 212th-Webseite direkt online!
