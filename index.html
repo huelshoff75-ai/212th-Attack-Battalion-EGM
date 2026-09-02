@@ -2,23 +2,17 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>212. Angriffsbataillon | EGM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>212th Attack Battalion | EGM</title>
     <style>
-        @page {
-            size: A4;
-            margin: 10mm;
-            background-color: #0b0d12;
-        }
-
         :root {
-            --bg-dark: #0b0d12;
-            --bg-card: #131722;
+            --bg-dark: #0f1219;
+            --bg-card: #181d28;
             --accent-orange: #ff7700;
-            --accent-yellow: #ffb700;
             --text-light: #f0f4f8;
-            --text-muted: #94a3b8;
-            --border-color: #2a3447;
-            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --text-muted: #8a99ad;
+            --border-color: #262f3f;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         * {
@@ -31,15 +25,34 @@
             font-family: var(--font-main);
             background-color: var(--bg-dark);
             color: var(--text-light);
-            line-height: 1.35;
-            font-size: 9pt;
+            line-height: 1.4;
+            font-size: 14px;
+            padding: 20px;
         }
 
+        /* Header Header-Bar */
         .header-bar {
             border-bottom: 2px solid var(--accent-orange);
-            padding-bottom: 6px;
-            margin-bottom: 10px;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
             text-align: center;
+        }
+
+        .subtitle {
+            color: var(--accent-orange);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .header-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .logo-badge {
@@ -48,96 +61,100 @@
             padding: 2px 8px;
             font-weight: 900;
             border-radius: 3px;
-            font-size: 10pt;
-            text-transform: uppercase;
+            margin-right: 6px;
         }
 
-        .header-title {
-            font-size: 16pt;
-            font-weight: 800;
-            color: #ffffff;
-            margin-top: 3px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .header-desc {
+            margin-top: 4px;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 12px;
         }
 
-        .subtitle {
-            color: var(--accent-orange);
-            font-size: 8.5pt;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-
+        /* Überschriften */
         h2 {
-            font-size: 11pt;
+            font-size: 15px;
             color: #ffffff;
             border-left: 4px solid var(--accent-orange);
-            padding-left: 8px;
-            margin-top: 10px;
-            margin-bottom: 6px;
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            page-break-after: avoid;
         }
 
-        .table-grid {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 5px;
-            margin-bottom: 4px;
+        /* Layout Grid für 3 Spalten */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
-        .table-grid td {
-            vertical-align: top;
+        .card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            padding: 8px;
-            width: 33.33%;
+            padding: 12px 14px;
         }
 
-        .card-title {
-            font-size: 9.5pt;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 3px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2px;
-        }
-
-        .card-desc {
-            font-size: 8pt;
-            color: var(--text-muted);
-        }
-
-        /* Zentrierte Icons ohne dunklen Hintergrundkasten */
-        .eq-card-img {
-            width: 100%;
-            height: 50px;
-            background: transparent;
+        /* Ausrüstung Cards Exakte Zentrierung */
+        .eq-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px 14px 14px 14px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 8px;
             text-align: center;
         }
 
-        .eq-card-img svg {
-            max-height: 45px;
-            max-width: 80%;
+        .eq-icon-wrap {
+            height: 48px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
         }
 
-        /* Badges */
+        .eq-content {
+            width: 100%;
+            text-align: left;
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .card-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* Badges & Tags */
+        .badge-group {
+            margin-bottom: 6px;
+        }
+
         .member-badge {
             display: inline-block;
-            padding: 1px 4px;
+            padding: 2px 6px;
             border-radius: 3px;
-            font-size: 6.5pt;
-            font-weight: bold;
+            font-size: 9px;
+            font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 3px;
+            margin-right: 4px;
+            margin-bottom: 4px;
         }
+
         .badge-cmd { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
         .badge-ghost { background: rgba(255, 119, 0, 0.2); color: #ff9d42; border: 1px solid #ff7700; }
         .badge-airborne { background: rgba(0, 150, 255, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
@@ -145,45 +162,42 @@
         .badge-rank { background: #2a3447; color: #f0f4f8; }
 
         .tag {
-            background: rgba(255, 119, 0, 0.15);
             color: var(--accent-orange);
-            font-size: 6.5pt;
-            font-weight: bold;
-            padding: 1px 4px;
-            border-radius: 3px;
+            font-size: 9px;
+            font-weight: 800;
             text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 3px;
+            display: block;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
         }
 
+        /* Regelwerk */
         .rules-section {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            padding: 8px;
-            margin-top: 8px;
+            padding: 14px;
+            margin-top: 15px;
         }
 
         .rules-section h3 {
             color: var(--accent-orange);
-            font-size: 9.5pt;
-            margin-top: 6px;
-            margin-bottom: 3px;
+            font-size: 12px;
+            margin-top: 10px;
+            margin-bottom: 4px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2px;
-            page-break-after: avoid;
+            padding-bottom: 3px;
         }
 
         .rules-list {
             list-style: none;
-            padding-left: 0;
         }
 
         .rules-list li {
-            font-size: 8pt;
+            font-size: 11px;
             color: var(--text-muted);
-            margin-bottom: 2px;
-            padding-left: 6px;
+            margin-bottom: 3px;
+            padding-left: 8px;
             border-left: 2px solid var(--accent-orange);
         }
 
@@ -192,12 +206,18 @@
         }
 
         .footer {
-            margin-top: 10px;
+            margin-top: 20px;
             text-align: center;
-            font-size: 7.5pt;
+            font-size: 10px;
             color: #64748b;
             border-top: 1px solid var(--border-color);
-            padding-top: 6px;
+            padding-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -205,201 +225,229 @@
 
     <div class="header-bar">
         <div class="subtitle">EGM Community Unit</div>
-        <div class="header-title"><span class="logo-badge">212th</span> Angriffsbataillon</div>
-        <p style="margin-top: 2px; font-style: italic; color: #cbd5e1; font-size: 8.5pt;">
-            Treue, Disziplin und unerschütterlicher Mut an vorderster Front der Großen Armee der Republik.
-        </p>
+        <div class="header-title"><span class="logo-badge">212TH</span> ANGRIFFSBATAILLON</div>
+        <div class="header-desc">Treue, Disziplin und unerschütterlicher Mut an vorderster Front der Großen Armee der Republik.</div>
     </div>
 
     <h2>Das Aufgabengebiet</h2>
-    <table class="table-grid">
-        <tr>
-            <td>
-                <div class="card-title">Hauptaufgabe</div>
-                <div class="card-desc">Die 212th hat die Aufgabe, feindliche Bodenfahrzeuge wie Panzer oder Flugzeuge wie Bomber und Jäger rapide zu zerstören. Das Vernichten der feindlichen Infanterie hat ebenfalls oberste Priorität.</div>
-            </td>
-            <td>
-                <div class="card-title">2nd Airborne Company</div>
-                <div class="card-desc">Durch die Spezialisierung der 2nd Airborne zählt es für unser Bataillon ebenso dazu, komplexe und hochgefährliche Luftlandeoperationen durchzuführen.</div>
-            </td>
-            <td>
-                <div class="card-title">Kampfpositionen</div>
-                <div class="card-desc">
-                    <strong>Auf Schiffen:</strong> Mainhangar oder 1. Hangar (2nd auf Außenhülle, GHC im Hangar).<br>
-                    <strong>In Basen:</strong> Vor dem HQ (2nd Dächer, GHC Boden).
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-title">Hauptaufgabe</div>
+            <div class="card-desc">Die 212th hat die Aufgabe, feindliche Bodenfahrzeuge wie Panzer oder Flugzeuge wie Bomber und Jäger rapide zu zerstören. Das Vernichten der feindlichen Infanterie hat ebenfalls oberste Priorität.</div>
+        </div>
+        <div class="card">
+            <div class="card-title">2nd Airborne Company</div>
+            <div class="card-desc">Durch die Spezialisierung der 2nd Airborne zählt es für unser Bataillon ebenso dazu, komplexe und hochgefährliche Luftlandeoperationen durchzuführen.</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Kampfpositionen</div>
+            <div class="card-desc">
+                <strong>Auf Schiffen:</strong> Mainhangar oder 1. Hangar (2nd auf Außenhülle, GHC im Hangar).<br>
+                <strong>In Basen:</strong> Vor dem HQ (2nd Dächer, GHC Boden).
+            </div>
+        </div>
+    </div>
 
     <h2>Einheitsmitglieder</h2>
-    <table class="table-grid">
-        <tr>
-            <td>
+    <div class="grid-3">
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-cmd">Commander</span>
                 <span class="member-badge badge-ghost">Ghost Company</span>
-                <div class="card-title">Cody | Nymphix</div>
-                <div class="card-desc"><strong>Position:</strong> Einheitsleitung</div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Cody | Nymphix</div>
+            <div class="card-desc"><strong>Position:</strong> Einheitsleitung</div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Major</span>
-                <div class="card-title">Thunder | Comet</div>
-                <div class="card-desc">
-                    <strong>Position:</strong> Hohe Führungsebene<br>
-                    <strong>Adjutant:</strong> CTP
-                </div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Thunder | Comet</div>
+            <div class="card-desc">
+                <strong>Position:</strong> Hohe Führungsebene<br>
+                <strong>Adjutant:</strong> CTP
+            </div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-jedi">Hoher General</span>
-                <div class="card-title">Obi-Wan Kenobi | Glow</div>
-                <div class="card-desc"><strong>Position:</strong> Einheitsjedi / FE</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
+            </div>
+            <div class="card-title">Obi-Wan Kenobi | Glow</div>
+            <div class="card-desc"><strong>Position:</strong> Einheitsjedi / FE</div>
+        </div>
+
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-jedi">Captain</span>
-                <div class="card-title">Nexar Tyne</div>
-                <div class="card-desc"><strong>Position:</strong> Einheitsjedi / FE</div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Nexar Tyne</div>
+            <div class="card-desc"><strong>Position:</strong> Einheitsjedi / FE</div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Captain</span>
                 <span class="member-badge badge-ghost">Ghost Company</span>
-                <div class="card-title">Ref</div>
-                <div class="card-desc">
-                    <strong>Position:</strong> Hohe FE<br>
-                    <strong>Adjutant:</strong> RMC
-                </div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Ref</div>
+            <div class="card-desc">
+                <strong>Position:</strong> Hohe FE<br>
+                <strong>Adjutant:</strong> RMC
+            </div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Captain</span>
                 <span class="member-badge badge-airborne">2nd Airborne</span>
-                <div class="card-title">Whiteaxe | Derbi</div>
-                <div class="card-desc"><strong>Position:</strong> Hohe FE</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
+            </div>
+            <div class="card-title">Whiteaxe | Derbi</div>
+            <div class="card-desc"><strong>Position:</strong> Hohe FE</div>
+        </div>
+
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">1st Lieutenant</span>
                 <span class="member-badge badge-ghost">Ghost Company</span>
-                <div class="card-title">Vuiq</div>
-                <div class="card-desc">
-                    <strong>Position:</strong> Führungsebene<br>
-                    <strong>Zusatz:</strong> Recon Squad
-                </div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Vuiq</div>
+            <div class="card-desc">
+                <strong>Position:</strong> Führungsebene<br>
+                <strong>Zusatz:</strong> Recon Squad
+            </div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Lieutenant</span>
                 <span class="member-badge badge-airborne">2nd Airborne</span>
-                <div class="card-title">Demon</div>
-                <div class="card-desc"><strong>Position:</strong> Führungsebene</div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Demon</div>
+            <div class="card-desc"><strong>Position:</strong> Führungsebene</div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Lieutenant</span>
                 <span class="member-badge badge-airborne">2nd Airborne</span>
-                <div class="card-title">Able | Raphi</div>
-                <div class="card-desc"><strong>Position:</strong> Führungsebene</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
+            </div>
+            <div class="card-title">Able | Raphi</div>
+            <div class="card-desc"><strong>Position:</strong> Führungsebene</div>
+        </div>
+
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Sergeant</span>
                 <span class="member-badge badge-airborne">2nd Airborne</span>
-                <div class="card-title">Tentef</div>
-                <div class="card-desc">
-                    <strong>Zusatz:</strong> Parjai Squad<br>
-                    <strong>Adjutant:</strong> RMC
-                </div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Tentef</div>
+            <div class="card-desc">
+                <strong>Zusatz:</strong> Parjai Squad<br>
+                <strong>Adjutant:</strong> RMC
+            </div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Sergeant</span>
                 <span class="member-badge badge-airborne">2nd Airborne</span>
-                <div class="card-title">Slick</div>
-                <div class="card-desc"><strong>Position:</strong> Untereinheit 2nd</div>
-            </td>
-            <td>
+            </div>
+            <div class="card-title">Slick</div>
+            <div class="card-desc"><strong>Position:</strong> Untereinheit 2nd</div>
+        </div>
+        <div class="card">
+            <div class="badge-group">
                 <span class="member-badge badge-rank">Sergeant</span>
                 <span class="member-badge badge-ghost">Ghost Company</span>
-                <div class="card-title">Peel | Ender</div>
-                <div class="card-desc"><strong>Position:</strong> Untereinheit GHC</div>
-            </td>
-        </tr>
-    </table>
+            </div>
+            <div class="card-title">Peel | Ender</div>
+            <div class="card-desc"><strong>Position:</strong> Untereinheit GHC</div>
+        </div>
+    </div>
 
     <h2>Ausrüstung & Information</h2>
-    <table class="table-grid">
-        <tr>
-            <td>
-                <div class="eq-card-img">
-                    <svg viewBox="0 0 100 40">
-                        <rect x="15" y="5" width="70" height="30" fill="none" stroke="#ff7700" stroke-width="2" stroke-dasharray="3,3"/>
-                        <line x1="25" y1="15" x2="75" y2="15" stroke="#ff7700" stroke-width="2"/>
-                        <line x1="30" y1="25" x2="60" y2="25" stroke="#ff7700" stroke-width="2"/>
-                        <circle cx="20" cy="20" r="3" fill="#ff7700"/>
-                    </svg>
-                </div>
+    <div class="grid-3">
+        <div class="eq-card">
+            <div class="eq-icon-wrap">
+                <svg viewBox="0 0 100 40" width="80" height="35">
+                    <rect x="10" y="5" width="80" height="30" fill="none" stroke="#ff7700" stroke-width="2" stroke-dasharray="3,3"/>
+                    <line x1="20" y1="15" x2="80" y2="15" stroke="#ff7700" stroke-width="2"/>
+                    <line x1="25" y1="25" x2="65" y2="25" stroke="#ff7700" stroke-width="2"/>
+                    <circle cx="15" cy="20" r="3" fill="#ff7700"/>
+                </svg>
+            </div>
+            <div class="eq-content">
                 <span class="tag">Bauplan</span>
                 <div class="card-title">DC-15A Bauplan</div>
                 <div class="card-desc">Detaillierte Explosionszeichnung der Einzelteile, Hebelsysteme und Komponenten.</div>
-            </td>
-            <td>
-                <div class="eq-card-img">
-                    <svg viewBox="0 0 100 40">
-                        <path d="M 10 20 L 35 20 L 40 15 L 75 15 L 75 22 L 45 22 L 40 28 L 30 28 L 25 22 L 10 22 Z" fill="#ff7700"/>
-                        <rect x="75" y="17" width="15" height="3" fill="#ff7700"/>
-                    </svg>
-                </div>
+            </div>
+        </div>
+
+        <div class="eq-card">
+            <div class="eq-icon-wrap">
+                <svg viewBox="0 0 100 40" width="90" height="35">
+                    <path d="M 10 20 L 35 20 L 40 15 L 75 15 L 75 22 L 45 22 L 40 28 L 30 28 L 25 22 L 10 22 Z" fill="#ff7700"/>
+                    <rect x="75" y="17" width="15" height="3" fill="#ff7700"/>
+                </svg>
+            </div>
+            <div class="eq-content">
                 <span class="tag">Hauptbewaffnung</span>
                 <div class="card-title">DC-15A Blaster Carbine</div>
                 <div class="card-desc">Infanteriewaffe mit Zielerfassung, Tibanna-Gaskartusche und Klappschaft.</div>
-            </td>
-            <td>
-                <div class="eq-card-img">
-                    <svg viewBox="0 0 100 40">
-                        <path d="M 35 35 C 35 15, 65 15, 65 35 Z" fill="none" stroke="#ff7700" stroke-width="3"/>
-                        <rect x="42" y="18" width="16" height="8" rx="2" fill="#ff7700"/>
-                    </svg>
-                </div>
+            </div>
+        </div>
+
+        <div class="eq-card">
+            <div class="eq-icon-wrap">
+                <svg viewBox="0 0 100 40" width="60" height="35">
+                    <path d="M 30 35 C 30 10, 70 10, 70 35 Z" fill="none" stroke="#ff7700" stroke-width="3.5"/>
+                    <rect x="42" y="18" width="16" height="8" rx="2" fill="#ff7700"/>
+                </svg>
+            </div>
+            <div class="eq-content">
                 <span class="tag">Aufklärung</span>
                 <div class="card-title">ARF-Rüstung</div>
                 <div class="card-desc">Erkundungs- und Aufklärungsrüstung des 212th Bataillons.</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="eq-card-img">
-                    <svg viewBox="0 0 100 40">
-                        <path d="M 35 10 L 65 10 L 70 30 L 30 30 Z" fill="none" stroke="#ff7700" stroke-width="3"/>
-                        <polygon points="42,18 58,18 54,26 46,26" fill="#ff7700"/>
-                    </svg>
-                </div>
+            </div>
+        </div>
+
+        <div class="eq-card">
+            <div class="eq-icon-wrap">
+                <svg viewBox="0 0 100 40" width="60" height="35">
+                    <path d="M 30 8 L 70 8 L 75 32 L 25 32 Z" fill="none" stroke="#ff7700" stroke-width="3"/>
+                    <polygon points="40,16 60,16 55,26 45,26" fill="#ff7700"/>
+                </svg>
+            </div>
+            <div class="eq-content">
                 <span class="tag">Luftlandeeinheit</span>
                 <div class="card-title">Airborne-Rüstung</div>
                 <div class="card-desc">Rüstung des 2nd Airborne mit Spezialhelm und Munitionsgurten.</div>
-            </td>
-            <td>
-                <div class="eq-card-img">
-                    <svg viewBox="0 0 100 40">
-                        <rect x="32" y="10" width="14" height="22" rx="2" fill="#ff7700"/>
-                        <rect x="54" y="10" width="14" height="22" rx="2" fill="#ff7700"/>
-                    </svg>
-                </div>
+            </div>
+        </div>
+
+        <div class="eq-card">
+            <div class="eq-icon-wrap">
+                <svg viewBox="0 0 100 40" width="60" height="35">
+                    <rect x="30" y="8" width="16" height="24" rx="3" fill="#ff7700"/>
+                    <rect x="54" y="8" width="16" height="24" rx="3" fill="#ff7700"/>
+                </svg>
+            </div>
+            <div class="eq-content">
                 <span class="tag">Spezial-Equipment</span>
                 <div class="card-title">JT-12 Jetpack</div>
                 <div class="card-desc">Rückentriebwerk für maximale vertikale Mobilität.</div>
-            </td>
-            <td>
-                <div class="eq-card-img">
-                    <svg viewBox="0 0 100 40">
-                        <rect x="15" y="16" width="60" height="8" rx="2" fill="#ff7700"/>
-                        <rect x="75" y="13" width="10" height="14" rx="2" fill="#ff7700"/>
-                    </svg>
-                </div>
+            </div>
+        </div>
+
+        <div class="eq-card">
+            <div class="eq-icon-wrap">
+                <svg viewBox="0 0 100 40" width="90" height="35">
+                    <rect x="10" y="16" width="65" height="8" rx="2" fill="#ff7700"/>
+                    <rect x="77" y="12" width="12" height="16" rx="2" fill="#ff7700"/>
+                </svg>
+            </div>
+            <div class="eq-content">
                 <span class="tag">Schwere Waffe</span>
                 <div class="card-title">RPS-6 Raketenwerfer</div>
                 <div class="card-desc">Schwere Panzerabwehrwaffe inklusive Munition.</div>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </div>
 
     <div class="rules-section">
         <h2>Offizielles 212th Regelwerk</h2>
